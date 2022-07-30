@@ -3,7 +3,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12 col-sm-6">
-                <h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
+                <h3 class="d-inline-block d-sm-none"><?= $barang->nama_barang; ?></h3>
                 <div class="col-12">
                     <img src="<?= base_url('assets/gambar/' . $barang->gambar); ?>" class="product-image" alt="Product Image">
                 </div>

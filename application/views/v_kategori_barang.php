@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="text-right">
-                                        <a href="#" class="btn btn-sm bg-success">
+                                        <a href="<?= base_url('home/detail_barang/' . $value->id_barang); ?>" class="btn btn-sm bg-success">
                                             <i class="fas fa-eye"></i>
                                         </a>
                                         <a href="#" class="btn btn-sm btn-primary">
