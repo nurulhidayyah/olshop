@@ -30,7 +30,7 @@ class Barang extends CI_Controller
 
 
         if ($this->form_validation->run() == TRUE) {
-            $config['upload_path'] = './assets/gambar';
+            $config['upload_path'] = './assets/gambar/';
             $config['allowed_types'] = 'jfif|gif|jpg|png|jpeg|ico';
             $config['max_size']     = '2000';
             $this->upload->initialize($config);
@@ -46,7 +46,7 @@ class Barang extends CI_Controller
             } else {
                 $upload_data = array('uploads' => $this->upload->data());
                 $config['image_library'] = 'gd2';
-                $config['source_image'] = './assets/gambar' . $upload_data['uploads']['file_name'];
+                $config['source_image'] = './assets/gambar/' . $upload_data['uploads']['file_name'];
                 $this->load->library('image_lib', $config);
                 $data = array(
                     'nama_barang' => $this->input->post('nama_barang'),
@@ -79,7 +79,7 @@ class Barang extends CI_Controller
 
 
         if ($this->form_validation->run() == TRUE) {
-            $config['upload_path'] = './assets/gambar';
+            $config['upload_path'] = './assets/gambar/';
             $config['allowed_types'] = 'jfif|gif|jpg|png|jpeg|ico';
             $config['max_size']     = '2000';
             $this->upload->initialize($config);
