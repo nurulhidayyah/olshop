@@ -36,6 +36,16 @@
             <?php foreach ($barang as $key => $value) { ?>
 
                 <div class="col-md-4 d-flex align-items-stretch">
+                    <?php
+
+                    echo form_open('belanja/add');
+                    echo form_hidden('id', $value->id_barang);
+                    echo form_hidden('qty', 1);
+                    echo form_hidden('price', $value->harga);
+                    echo form_hidden('name', $value->nama_barang);
+                    echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
+
+                    ?>
                     <div class="card bg-light">
                         <div class="card-header text-muted border-bottom-0">
                             <h2 class="lead"><b><?= $value->nama_barang; ?></b></h2>
@@ -60,17 +70,37 @@
                                         <a href="<?= base_url('home/detail_barang/' . $value->id_barang); ?>" class="btn btn-sm bg-success">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="#" class="btn btn-sm btn-primary">
+                                        <button type="submit" class="btn btn-sm btn-primary swalDefaultSuccess">
                                             <i class="fas fa-cart-plus"></i> Tambah
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php echo form_close(); ?>
                 </div>
 
             <?php } ?>
         </div>
     </div>
 </div>
+
+<script src="<?= base_url() ?>template/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+
+        $('.swalDefaultSuccess').click(function() {
+            Toast.fire({
+                icon: 'success',
+                title: 'Barang Berhasil Ditambahkan Ke Keranjang!!!'
+            })
+        });
+    });
+</script>

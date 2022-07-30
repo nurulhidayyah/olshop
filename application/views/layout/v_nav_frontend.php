@@ -3,7 +3,7 @@
     <div class="container">
         <a href="<?= base_url() ?>" class="navbar-brand">
             <i class="fas fa-store text-primary"></i>
-            <span class="brand-text font-weight-light"><b> Toko Online</b></span>
+            <span class="brand-text font-weight-light"><b> Purnama ATK</b></span>
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -147,8 +147,8 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Toko Onlie</a></li>
-                        <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
+                        <li class="breadcrumb-item"><a href="#">Purnama ATK</a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url(); ?>"><?= $title; ?></a></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
