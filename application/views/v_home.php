@@ -33,55 +33,61 @@
 <div class="card card-solid">
     <div class="card-body pb-0">
         <div class="row">
-
             <?php foreach ($barang as $key => $value) { ?>
 
-                <div class="col-md-4">
-                    <?php
+                <a href="<?= base_url('home/detail_barang/' . $value->id_barang); ?>">
+                    <div class="col">
+                        <?php
 
-                    echo form_open('belanja/add');
-                    echo form_hidden('id', $value->id_barang);
-                    echo form_hidden('qty', 1);
-                    echo form_hidden('price', $value->harga);
-                    echo form_hidden('name', $value->nama_barang);
-                    echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
+                        echo form_open('belanja/add');
+                        echo form_hidden('id', $value->id_barang);
+                        echo form_hidden('qty', 1);
+                        echo form_hidden('price', $value->harga);
+                        echo form_hidden('name', $value->nama_barang);
+                        echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
 
-                    ?>
-                    <div class="card bg-light">
-                        <div class="card-header text-muted border-bottom-0">
-                            <h2 class="lead"><b><?= $value->nama_barang; ?></b></h2>
-                            <p class="text-muted text-sm"><b>Kategori : </b> <?= $value->nama_kategori; ?> </p>
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <img src="<?= base_url('assets/gambar/' . $value->gambar) ?>" alt="" class="img-fluid" width="300px" height="250px">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="text-left">
-                                        <h4><span class="badge bg-primary">Rp. <?= number_format($value->harga, 0); ?></span></h4>
+                        ?>
+                        <div class="card bg-light" >
+                            <div class="card-header text-muted border-bottom-0">
+                                <div class="col">
+                                    <div class="text-nowrap" style="width: 8rem;">
+                                        <h2 class="lead"><b><?= $value->nama_barang; ?></b></h2>
+                                    </div>
+                                    <div class="text-nowrap" style="width: 8rem;">
+                                    <p class="text-muted text-sm"><b>Kategori : </b> <?= $value->nama_kategori; ?> </p>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="text-right">
-                                        <a href="<?= base_url('home/detail_barang/' . $value->id_barang); ?>" class="btn btn-sm bg-success">
+                            </div>
+                            <div class="card-body pt-0" style="max-height: 200px">
+                                <div class="row">
+                                    <div class="col-sm-12 text-center">
+                                        <img src="<?= base_url('assets/gambar/' . $value->gambar) ?>" alt="" class="img-fluid" height="200px"  style="max-height: 200px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="text-left">
+                                            <h4><span class="badge bg-primary">Rp. <?= number_format($value->harga, 0); ?></span></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <a href="<?= base_url('home/detail_barang/' . $value->id_barang); ?>" class="btn btn-sm bg-success mb-2">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <button type="submit" class="btn btn-sm btn-primary swalDefaultSuccess">
+                                        <button type="submit" class="btn btn-sm btn-primary swalDefaultSuccess mb-2">
                                             <i class="fas fa-cart-plus"></i> Tambah
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <?php echo form_close(); ?>
                     </div>
-                    <?php echo form_close(); ?>
-                </div>
-
+                </a>
             <?php } ?>
         </div>
     </div>

@@ -40,7 +40,7 @@
                 <div class="mt-4">
                     <div class="row">
                         <div class="col-md-2">
-                            <input type="number" name="qty" class="form-control" value="1" min="1">
+                            <input type="number" name="qty" class="form-control mb-2" value="1" min="1">
                         </div>
                         <div class="col-md-8">
                             <button type="submit" class="btn btn-primary btn-flat swalDefaultSuccess">

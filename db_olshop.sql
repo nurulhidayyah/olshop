@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Jun 2022 pada 12.39
--- Versi server: 10.4.20-MariaDB
--- Versi PHP: 8.0.8
+-- Generation Time: Aug 07, 2022 at 07:01 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_barang`
+-- Table structure for table `tbl_barang`
 --
 
 CREATE TABLE `tbl_barang` (
@@ -33,24 +33,27 @@ CREATE TABLE `tbl_barang` (
   `id_kategori` int(11) DEFAULT NULL,
   `harga` int(11) DEFAULT NULL,
   `deskripsi` mediumtext DEFAULT NULL,
-  `gambar` text DEFAULT NULL
+  `gambar` text DEFAULT NULL,
+  `berat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_barang`
+-- Dumping data for table `tbl_barang`
 --
 
-INSERT INTO `tbl_barang` (`id_barang`, `nama_barang`, `id_kategori`, `harga`, `deskripsi`, `gambar`) VALUES
-(1, 'Hand Phone', 8, 3400000, 'Deskripsi', 'hp.jpg'),
-(8, 'Redmi Note 8', 8, 1000000, 'Hand Phone', 'redmi-note-81.png'),
-(10, 'Kemeja', 2, 500000, 'Kemeja laki-laki', 'kemeja.jpg'),
-(11, 'Kemeja Planel', 2, 700000, 'Kemeja Planel', 'kemeja2.jpg'),
-(12, 'Sepatu Laki-laki', 6, 400000, 'Sepatu Keren', 'sepatu.jpg');
+INSERT INTO `tbl_barang` (`id_barang`, `nama_barang`, `id_kategori`, `harga`, `deskripsi`, `gambar`, `berat`) VALUES
+(1, 'Hand Phone', 8, 3400000, 'Deskripsi', 'hp.jpg', 1000),
+(8, 'Redmi Note 8', 8, 1000000, 'Hand Phone', 'redmi-note-81.png', 1000),
+(10, 'Kemeja', 2, 500000, 'Kemeja laki-laki', 'kemeja.jpg', 200),
+(11, 'Kemeja Planel', 2, 700000, 'Kemeja Planel', 'kemeja2.jpg', 600),
+(14, 'Philips', 13, 120000, 'Lampu Terang', 'qGsZlM6EZpLr95ltmEyHeUCUYbrJjD3lTwemz0Ub.jpg', 1000),
+(15, 'Philips Led 18 Watt', 13, 60000, 'maknyos', 'download.jpg', 200),
+(16, 'Kemeja Polos', 2, 700000, 'Nyaman di pake', 'ab0fa54945a5ec9c47d95d7a8edf3ed3.jpg', 300);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_gambar`
+-- Table structure for table `tbl_gambar`
 --
 
 CREATE TABLE `tbl_gambar` (
@@ -61,21 +64,20 @@ CREATE TABLE `tbl_gambar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_gambar`
+-- Dumping data for table `tbl_gambar`
 --
 
 INSERT INTO `tbl_gambar` (`id_gambar`, `id_barang`, `ket`, `gambar`) VALUES
-(1, 1, 'gambar 1', 'gambar (1).jpg'),
-(2, 1, 'gambar 2', 'gambar (2).jpg'),
-(3, 1, 'gambar 3', 'gambar (3).jpg'),
-(4, 1, 'gambar 4', 'gambar (4).jpg'),
-(5, 1, 'gambar 5', 'gambar (5).jpg'),
-(6, 8, 'gambar 1', 'gambar (1).jpg');
+(12, 11, 'Gambar 1', 'WIN_20220730_07_33_09_Pro.jpg'),
+(13, 11, 'Gambar 2', 'WIN_20220730_07_33_09_Pro1.jpg'),
+(14, 11, 'Gambar 3', 'WIN_20220730_07_33_09_Pro2.jpg'),
+(15, 11, 'Gambar 4', 'WIN_20220730_07_33_09_Pro3.jpg'),
+(16, 11, 'Gambar 5', 'WIN_20220730_07_33_09_Pro4.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_kategori`
+-- Table structure for table `tbl_kategori`
 --
 
 CREATE TABLE `tbl_kategori` (
@@ -84,7 +86,7 @@ CREATE TABLE `tbl_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_kategori`
+-- Dumping data for table `tbl_kategori`
 --
 
 INSERT INTO `tbl_kategori` (`id_kategori`, `nama_kategori`) VALUES
@@ -95,12 +97,13 @@ INSERT INTO `tbl_kategori` (`id_kategori`, `nama_kategori`) VALUES
 (5, 'Sepatu Wanita'),
 (6, 'Sepatu Laki-laki'),
 (8, 'Smart Phone'),
-(10, 'Logam Mulia');
+(12, 'Logam Mulia'),
+(13, 'Elektronik');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_user`
+-- Table structure for table `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -112,7 +115,7 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_user`
+-- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id_user`, `nama_user`, `username`, `password`, `level_user`) VALUES
@@ -125,53 +128,53 @@ INSERT INTO `tbl_user` (`id_user`, `nama_user`, `username`, `password`, `level_u
 --
 
 --
--- Indeks untuk tabel `tbl_barang`
+-- Indexes for table `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indeks untuk tabel `tbl_gambar`
+-- Indexes for table `tbl_gambar`
 --
 ALTER TABLE `tbl_gambar`
   ADD PRIMARY KEY (`id_gambar`);
 
 --
--- Indeks untuk tabel `tbl_kategori`
+-- Indexes for table `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indeks untuk tabel `tbl_user`
+-- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_barang`
+-- AUTO_INCREMENT for table `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_gambar`
+-- AUTO_INCREMENT for table `tbl_gambar`
 --
 ALTER TABLE `tbl_gambar`
-  MODIFY `id_gambar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_gambar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_kategori`
+-- AUTO_INCREMENT for table `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_user`
+-- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;

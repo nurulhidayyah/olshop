@@ -62,9 +62,9 @@
             <hr>
             <div class="row">
                 <?php foreach ($gambar as $key => $value) { ?>
-                    <div class="col-sm-3">
+                    <div class="col">
                         <div class="form-group">
-                            <img src="<?= base_url('assets/gambarbarang/' . $value->gambar) ?>" id="gambar_load" width="250px">
+                            <img src="<?= base_url('assets/gambarbarang/' . $value->gambar) ?>" id="gambar_load" width="250px" class="img-thumbnail">
                         </div>
                         <p>Keterangan : <?= $value->ket ?></p>
                         <button class="btn btn-danger btn-xs btn-block mb-2" data-toggle="modal" data-target="#delete<?= $value->id_gambar ?>"><i class="fas fa-trash"></i></button>
