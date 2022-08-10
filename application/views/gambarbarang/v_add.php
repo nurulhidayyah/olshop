@@ -62,7 +62,7 @@
             <hr>
             <div class="row">
                 <?php foreach ($gambar as $key => $value) { ?>
-                    <div class="col">
+                    <div class="col-sm-2 text-center">
                         <div class="form-group">
                             <img src="<?= base_url('assets/gambarbarang/' . $value->gambar) ?>" id="gambar_load" width="250px" class="img-thumbnail">
                         </div>

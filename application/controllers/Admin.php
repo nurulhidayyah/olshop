@@ -21,4 +21,13 @@ class Admin extends CI_Controller
         );
         $this->load->view('layout/v_wrapper_backend', $data, FALSE);
     }
+    public function setting()
+    {
+        $data = array(
+            'title' => 'Setting',
+            'setting' =>  $this->m_admin->data_setting(),
+            'isi' => 'v_setting'
+        );
+        $this->load->view('layout/v_wrapper_backend', $data, FALSE);
+    }
 }
