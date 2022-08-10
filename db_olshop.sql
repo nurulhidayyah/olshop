@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2022 at 07:01 PM
+-- Generation Time: Aug 10, 2022 at 07:32 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -63,17 +63,6 @@ CREATE TABLE `tbl_gambar` (
   `gambar` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `tbl_gambar`
---
-
-INSERT INTO `tbl_gambar` (`id_gambar`, `id_barang`, `ket`, `gambar`) VALUES
-(12, 11, 'Gambar 1', 'WIN_20220730_07_33_09_Pro.jpg'),
-(13, 11, 'Gambar 2', 'WIN_20220730_07_33_09_Pro1.jpg'),
-(14, 11, 'Gambar 3', 'WIN_20220730_07_33_09_Pro2.jpg'),
-(15, 11, 'Gambar 4', 'WIN_20220730_07_33_09_Pro3.jpg'),
-(16, 11, 'Gambar 5', 'WIN_20220730_07_33_09_Pro4.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -99,6 +88,27 @@ INSERT INTO `tbl_kategori` (`id_kategori`, `nama_kategori`) VALUES
 (8, 'Smart Phone'),
 (12, 'Logam Mulia'),
 (13, 'Elektronik');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_setting`
+--
+
+CREATE TABLE `tbl_setting` (
+  `id` int(1) NOT NULL,
+  `nama_toko` varchar(255) DEFAULT NULL,
+  `lokasi` int(11) DEFAULT NULL,
+  `alamat_toko` text DEFAULT NULL,
+  `no_telepon` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_setting`
+--
+
+INSERT INTO `tbl_setting` (`id`, `nama_toko`, `lokasi`, `alamat_toko`, `no_telepon`) VALUES
+(1, 'Purnama ATK', NULL, 'Jl. Binuangeun Lebak', '123456');
 
 -- --------------------------------------------------------
 
@@ -146,6 +156,12 @@ ALTER TABLE `tbl_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
+-- Indexes for table `tbl_setting`
+--
+ALTER TABLE `tbl_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -165,7 +181,7 @@ ALTER TABLE `tbl_barang`
 -- AUTO_INCREMENT for table `tbl_gambar`
 --
 ALTER TABLE `tbl_gambar`
-  MODIFY `id_gambar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_gambar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tbl_kategori`
