@@ -21,4 +21,10 @@ class M_admin extends CI_Model
         $this->db->where('id', 1);
         return $this->db->get()->row();
     }
+
+    public function edit($data)
+    {
+        $this->db->where('id', $data['id']);
+        $this->db->update('tbl_setting', $data);
+    }
 }

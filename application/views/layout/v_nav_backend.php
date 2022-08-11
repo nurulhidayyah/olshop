@@ -84,9 +84,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="<?= base_url('admin/setting'); ?>" class="nav-link <?php if ($this->uri->segment(1) == 'admin/setting') {
-                                                                                    echo 'active';
-                                                                                } ?>">
+                    <a href="<?= base_url('admin/setting'); ?>" class="nav-link">
                         <i class="nav-icon fa fa-asterisk"></i>
                         <p>Setting</p>
                     </a>
