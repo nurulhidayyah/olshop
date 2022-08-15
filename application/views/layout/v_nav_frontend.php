@@ -46,21 +46,27 @@
             <!-- Messages Dropdown Menu -->
             <li class="nav-item">
                 <?php if ($this->session->userdata('email') == "") { ?>
-                    <a class="nav-link" href="<?= base_url('pelanggan/register'); ?>">
+                    <a class="nav-link" href="<?= base_url('pelanggan/login'); ?>">
                         <span class="brand-text font-weight-light">Login/Register</span>
                         <img src="<?= base_url(); ?>template/dist/img/user1-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                     </a>
                 <?php } else { ?>
-
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-envelope mr-2"></i> Nama Pelanggan
-                        <span class="float-right text-muted text-sm">3 mins</span>
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <span class="brand-text font-weight-light"><?= $this->session->userdata('nama_pelanggan'); ?></span>
+                        <img src="<?= base_url('assets/foto/' . $this->session->userdata('foto')); ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                     </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                </div>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <div class="dropdown-divider"></div>
+                        <a href="<?= base_url('pelanggan/akun'); ?>" class="dropdown-item">
+                            <i class="fas fa-user mr-2"></i> Akun Saya
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-shopping-cart mr-2"></i> Pesanan Saya
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="<?= base_url('pelanggan/logout'); ?>" class="dropdown-item dropdown-footer">Logout</a>
+                    </div>
 
                 <?php } ?>
             </li>

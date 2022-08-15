@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 15, 2022 at 02:02 AM
+-- Generation Time: Aug 15, 2022 at 06:22 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -99,15 +99,16 @@ CREATE TABLE `tbl_pelanggan` (
   `id_pelanggan` int(11) NOT NULL,
   `nama_pelanggan` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `password` text DEFAULT NULL
+  `password` text DEFAULT NULL,
+  `foto` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_pelanggan`
 --
 
-INSERT INTO `tbl_pelanggan` (`id_pelanggan`, `nama_pelanggan`, `email`, `password`) VALUES
-(1, 'Nurul Hidayah', 'nurulhidayyah45@gmail.com', '123');
+INSERT INTO `tbl_pelanggan` (`id_pelanggan`, `nama_pelanggan`, `email`, `password`, `foto`) VALUES
+(1, 'Nurul Hidayah', 'nurulhidayyah45@gmail.com', '123', 'foto.jpg');
 
 -- --------------------------------------------------------
 
