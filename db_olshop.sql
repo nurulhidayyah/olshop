@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2022 at 07:32 AM
+-- Generation Time: Aug 15, 2022 at 02:02 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -92,6 +92,26 @@ INSERT INTO `tbl_kategori` (`id_kategori`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_pelanggan`
+--
+
+CREATE TABLE `tbl_pelanggan` (
+  `id_pelanggan` int(11) NOT NULL,
+  `nama_pelanggan` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_pelanggan`
+--
+
+INSERT INTO `tbl_pelanggan` (`id_pelanggan`, `nama_pelanggan`, `email`, `password`) VALUES
+(1, 'Nurul Hidayah', 'nurulhidayyah45@gmail.com', '123');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_setting`
 --
 
@@ -108,7 +128,7 @@ CREATE TABLE `tbl_setting` (
 --
 
 INSERT INTO `tbl_setting` (`id`, `nama_toko`, `lokasi`, `alamat_toko`, `no_telepon`) VALUES
-(1, 'Purnama ATK', NULL, 'Jl. Binuangeun Lebak', '123456');
+(1, 'Purnama ATK', 232, 'Jl. Binuangeun Lebak', '123456');
 
 -- --------------------------------------------------------
 
@@ -156,6 +176,12 @@ ALTER TABLE `tbl_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
+-- Indexes for table `tbl_pelanggan`
+--
+ALTER TABLE `tbl_pelanggan`
+  ADD PRIMARY KEY (`id_pelanggan`);
+
+--
 -- Indexes for table `tbl_setting`
 --
 ALTER TABLE `tbl_setting`
@@ -188,6 +214,12 @@ ALTER TABLE `tbl_gambar`
 --
 ALTER TABLE `tbl_kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `tbl_pelanggan`
+--
+ALTER TABLE `tbl_pelanggan`
+  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

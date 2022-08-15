@@ -43,7 +43,7 @@
                             <td class="text-center"><?= $value->nama_kategori; ?></td>
                             <td class="text-center">Rp. <?= number_format($value->harga), 0; ?></td>
                             <td class="text-center"><img src="<?= base_url('assets/gambar/' . $value->gambar); ?>" alt="<?= $value->gambar; ?>" width="150px"></td>
-                            <td class="text-center col-sm-12">
+                            <td class="text-center">
                                 <a href="<?= base_url('barang/edit/' . $value->id_barang); ?>" class="btn btn-sm btn-warning mb-2"><i class="fas fa-edit"></i></a>
                                 <button class="btn btn-sm btn-danger mb-2" data-toggle="modal" data-target="#delete<?= $value->id_barang ?>"><i class="fas fa-trash"></i></button>
                             </td>
