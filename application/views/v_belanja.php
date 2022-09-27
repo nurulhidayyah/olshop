@@ -68,7 +68,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary mb-3"><i class="fa fa-save"></i> Update Cart</button>
                 <a href="<?= base_url('belanja/clear'); ?>" class="btn btn-danger text-white mb-3"><i class="fa fa-recycle"></i> Clear Cart</a>
-                <a href="#" class="btn btn-success text-white mb-3"><i class="fa fa-check-square"></i> Checkout</a>
+                <a href="<?= base_url('belanja/checkout'); ?>" class="btn btn-success text-white mb-3"><i class="fa fa-check-square"></i> Checkout</a>
 
                 <?php form_close(); ?>
                 <!-- /.card-body -->
