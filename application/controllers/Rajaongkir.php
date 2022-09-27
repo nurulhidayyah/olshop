@@ -76,4 +76,12 @@ class Rajaongkir extends CI_Controller
             }
         }
     }
+
+    public function expedisi()
+    {
+        echo '<option>--Pilih Expedisi--</option>';
+        echo '<option value="jne">JNE</option>';
+        echo '<option value="tiki">TIKI</option>';
+        echo '<option value="pos">POS Indonesia</option>';
+    }
 }
