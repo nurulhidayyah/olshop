@@ -104,6 +104,12 @@
                         <select name="paket" class="form-control"></select>
                     </div>
                 </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Alamat</label>
+                        <input name="alamat" class="form-control">
+                    </div>
+                </div>
             </div>
         </div>
         <!-- /.col -->
@@ -120,11 +126,11 @@
                     </tr>
                     <tr>
                         <th>Ongkir:</th>
-                        <td>0</td>
+                        <td id="ongkir">0</td>
                     </tr>
                     <tr>
                         <th>Total Bayar:</th>
-                        <td>0</td>
+                        <td id="total_bayar">0</td>
                     </tr>
                 </table>
             </div>
@@ -136,7 +142,7 @@
     <!-- this row will not appear when printing -->
     <div class="row no-print">
         <div class="col-12">
-            <a href="<?= base_url('belanja'); ?>"class="btn btn-warning"><i class="fas fa-backward"></i> Kembali Ke Keranjang</a>
+            <a href="<?= base_url('belanja'); ?>" class="btn btn-warning"><i class="fas fa-backward"></i> Kembali Ke Keranjang</a>
             <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
                 <i class="fas fa-shopping-cart"></i> Proses Checkout
             </button>
@@ -182,14 +188,34 @@
         });
 
         $("select[name=expedisi]").on("change", function() {
+            var expedisi_terpilih = $("select[name=expedisi]").val()
+            var id_kota_tujuan_terpilih = $("option:selected", "select[name=kota]").attr('id_kota')
+            var total_berat = <?= $tot_berat ?>;
             $.ajax({
                 type: "POST",
                 url: "<?= base_url('rajaongkir/paket') ?>",
+                data: 'expedisi=' + expedisi_terpilih + '&id_kota=' + id_kota_tujuan_terpilih + '&berat=' + total_berat,
                 success: function(hasil_paket) {
                     // console.log(hasil_paket);
                     $("select[name=paket]").html(hasil_paket);
                 }
             });
+        });
+
+        $("select[name=paket]").on("change", function() {
+            // Menampilkan ongkir
+            var dataongkir = $("option:selected", this).attr('ongkir');
+            var reverse = dataongkir.toString().split('').reverse().join(''),
+                ongkos_kirim = reverse.match(/\d{1,3}/g);
+                ongkos_kirim = "Rp. " + ongkos_kirim.join(',').split('').reverse().join('');
+            $("#ongkir").html(ongkos_kirim)
+            // Menghitung total Bayar
+            var ongkir = $("option:selected", this).attr('ongkir');
+            var total_bayar = parseInt(ongkir) + parseInt(<?= $this->cart->total() ?>);
+            var reverse = total_bayar.toString().split('').reverse().join(''),
+                ribuan = reverse.match(/\d{1,3}/g);
+                ribuan = "Rp. " + ribuan.join(',').split('').reverse().join('');
+            $("#total_bayar").html(ribuan)
         });
     });
 </script>
