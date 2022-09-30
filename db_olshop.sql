@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 15, 2022 at 06:22 AM
+-- Generation Time: Sep 30, 2022 at 05:13 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -113,6 +113,18 @@ INSERT INTO `tbl_pelanggan` (`id_pelanggan`, `nama_pelanggan`, `email`, `passwor
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_rinci_transaksi`
+--
+
+CREATE TABLE `tbl_rinci_transaksi` (
+  `no_order` varchar(15) DEFAULT NULL,
+  `id_barang` int(11) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_setting`
 --
 
@@ -130,6 +142,37 @@ CREATE TABLE `tbl_setting` (
 
 INSERT INTO `tbl_setting` (`id`, `nama_toko`, `lokasi`, `alamat_toko`, `no_telepon`) VALUES
 (1, 'Purnama ATK', 232, 'Jl. Binuangeun Lebak', '123456');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_transaksi`
+--
+
+CREATE TABLE `tbl_transaksi` (
+  `id_transaksi` int(11) NOT NULL,
+  `no_order` varchar(15) NOT NULL,
+  `tgl_order` date DEFAULT NULL,
+  `nama_penerima` varchar(50) DEFAULT NULL,
+  `provinsi` varchar(30) DEFAULT NULL,
+  `kota` varchar(30) DEFAULT NULL,
+  `alamat` text DEFAULT NULL,
+  `kode_pos` varchar(8) DEFAULT NULL,
+  `expedisi` varchar(255) DEFAULT NULL,
+  `paket` varchar(255) DEFAULT NULL,
+  `estimasi` varchar(255) DEFAULT NULL,
+  `ongkir` int(11) DEFAULT NULL,
+  `berat` int(11) DEFAULT NULL,
+  `grand_total` int(11) DEFAULT NULL,
+  `total_bayar` int(11) DEFAULT NULL,
+  `status_bayar` int(1) DEFAULT NULL,
+  `bukti_bayar` text NOT NULL,
+  `atas_nama` int(25) NOT NULL,
+  `nama_bank` int(25) NOT NULL,
+  `no_rek` int(25) NOT NULL,
+  `status_order` int(1) NOT NULL,
+  `no_resi` int(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -189,6 +232,12 @@ ALTER TABLE `tbl_setting`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_transaksi`
+--
+ALTER TABLE `tbl_transaksi`
+  ADD PRIMARY KEY (`id_transaksi`);
+
+--
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -221,6 +270,12 @@ ALTER TABLE `tbl_kategori`
 --
 ALTER TABLE `tbl_pelanggan`
   MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_transaksi`
+--
+ALTER TABLE `tbl_transaksi`
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
