@@ -61,7 +61,7 @@
                             <i class="fas fa-user mr-2"></i> Akun Saya
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
+                        <a href="<?= base_url('pesanan_saya'); ?>" class="dropdown-item">
                             <i class="fas fa-shopping-cart mr-2"></i> Pesanan Saya
                         </a>
                         <div class="dropdown-divider"></div>
