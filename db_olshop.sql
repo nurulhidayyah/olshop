@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2022 at 01:30 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Waktu pembuatan: 05 Nov 2022 pada 19.28
+-- Versi server: 10.4.20-MariaDB
+-- Versi PHP: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_barang`
+-- Struktur dari tabel `tbl_barang`
 --
 
 CREATE TABLE `tbl_barang` (
@@ -38,7 +38,7 @@ CREATE TABLE `tbl_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_barang`
+-- Dumping data untuk tabel `tbl_barang`
 --
 
 INSERT INTO `tbl_barang` (`id_barang`, `nama_barang`, `id_kategori`, `harga`, `deskripsi`, `gambar`, `berat`) VALUES
@@ -53,7 +53,7 @@ INSERT INTO `tbl_barang` (`id_barang`, `nama_barang`, `id_kategori`, `harga`, `d
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_gambar`
+-- Struktur dari tabel `tbl_gambar`
 --
 
 CREATE TABLE `tbl_gambar` (
@@ -66,7 +66,7 @@ CREATE TABLE `tbl_gambar` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_kategori`
+-- Struktur dari tabel `tbl_kategori`
 --
 
 CREATE TABLE `tbl_kategori` (
@@ -75,7 +75,7 @@ CREATE TABLE `tbl_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_kategori`
+-- Dumping data untuk tabel `tbl_kategori`
 --
 
 INSERT INTO `tbl_kategori` (`id_kategori`, `nama_kategori`) VALUES
@@ -92,7 +92,7 @@ INSERT INTO `tbl_kategori` (`id_kategori`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_pelanggan`
+-- Struktur dari tabel `tbl_pelanggan`
 --
 
 CREATE TABLE `tbl_pelanggan` (
@@ -104,7 +104,7 @@ CREATE TABLE `tbl_pelanggan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_pelanggan`
+-- Dumping data untuk tabel `tbl_pelanggan`
 --
 
 INSERT INTO `tbl_pelanggan` (`id_pelanggan`, `nama_pelanggan`, `email`, `password`, `foto`) VALUES
@@ -114,7 +114,7 @@ INSERT INTO `tbl_pelanggan` (`id_pelanggan`, `nama_pelanggan`, `email`, `passwor
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_rekening`
+-- Struktur dari tabel `tbl_rekening`
 --
 
 CREATE TABLE `tbl_rekening` (
@@ -125,7 +125,7 @@ CREATE TABLE `tbl_rekening` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_rekening`
+-- Dumping data untuk tabel `tbl_rekening`
 --
 
 INSERT INTO `tbl_rekening` (`id_rekening`, `nama_bank`, `no_rek`, `atas_nama`) VALUES
@@ -135,7 +135,7 @@ INSERT INTO `tbl_rekening` (`id_rekening`, `nama_bank`, `no_rek`, `atas_nama`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_rinci_transaksi`
+-- Struktur dari tabel `tbl_rinci_transaksi`
 --
 
 CREATE TABLE `tbl_rinci_transaksi` (
@@ -146,7 +146,7 @@ CREATE TABLE `tbl_rinci_transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_rinci_transaksi`
+-- Dumping data untuk tabel `tbl_rinci_transaksi`
 --
 
 INSERT INTO `tbl_rinci_transaksi` (`id_rinci`, `no_order`, `id_barang`, `qty`) VALUES
@@ -162,12 +162,15 @@ INSERT INTO `tbl_rinci_transaksi` (`id_rinci`, `no_order`, `id_barang`, `qty`) V
 (11, '20221007JT5ZJVYC', 16, 1),
 (12, '20221007J3XSAURB', 1, 1),
 (13, '20221009KAKXBOFL', 1, 1),
-(14, '20221009KAKXBOFL', 14, 1);
+(14, '20221009KAKXBOFL', 14, 1),
+(15, '20221105IJFYBCBW', 15, 1),
+(16, '20221105IJFYBCBW', 11, 1),
+(17, '20221105IDXMECWS', 16, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_setting`
+-- Struktur dari tabel `tbl_setting`
 --
 
 CREATE TABLE `tbl_setting` (
@@ -179,7 +182,7 @@ CREATE TABLE `tbl_setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_setting`
+-- Dumping data untuk tabel `tbl_setting`
 --
 
 INSERT INTO `tbl_setting` (`id`, `nama_toko`, `lokasi`, `alamat_toko`, `no_telepon`) VALUES
@@ -188,7 +191,7 @@ INSERT INTO `tbl_setting` (`id`, `nama_toko`, `lokasi`, `alamat_toko`, `no_telep
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_transaksi`
+-- Struktur dari tabel `tbl_transaksi`
 --
 
 CREATE TABLE `tbl_transaksi` (
@@ -219,16 +222,18 @@ CREATE TABLE `tbl_transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_transaksi`
+-- Dumping data untuk tabel `tbl_transaksi`
 --
 
 INSERT INTO `tbl_transaksi` (`id_transaksi`, `id_pelanggan`, `no_order`, `tgl_order`, `nama_penerima`, `no_telp`, `provinsi`, `kota`, `alamat`, `kode_pos`, `expedisi`, `paket`, `estimasi`, `ongkir`, `berat`, `grand_total`, `total_bayar`, `status_bayar`, `bukti_bayar`, `atas_nama`, `nama_bank`, `no_rek`, `status_order`, `no_resi`) VALUES
-(6, 1, '20221007J3XSAURB', '2022-10-07', 'Nurul Hidayah', '0812123111', 'DI Yogyakarta', 'Kulon Progo', 'sdaSDsdsd', '41241241', 'tiki', 'REG', '4 Hari', 29000, 1000, 3400000, 3429000, 1, 'bukti_bayar.jpg', 'Budi', 'BRI', '1123-2133-3133-1231', 0, NULL);
+(6, 1, '20221007J3XSAURB', '2022-10-07', 'Nurul Hidayah', '0812123111', 'DI Yogyakarta', 'Kulon Progo', 'sdaSDsdsd', '41241241', 'tiki', 'REG', '4 Hari', 29000, 1000, 3400000, 3429000, 1, 'bukti_bayar.jpg', 'Budi', 'BRI', '1123-2133-3133-1231', 0, NULL),
+(8, 1, '20221105IJFYBCBW', '2022-11-05', 'Nurul Hidayah', '081298021608', 'Banten', 'Lebak', 'Binuangeun', '42396', 'jne', 'CTCYES', '1-1 Hari', 13000, 800, 760000, 773000, 0, NULL, NULL, NULL, NULL, 0, NULL),
+(9, 1, '20221105IDXMECWS', '2022-11-05', 'Nday', '081298021608', 'DKI Jakarta', 'Jakarta Selatan', 'Binuangeun', '42396', 'tiki', 'REG', '2 Hari', 12000, 300, 700000, 712000, 1, 'HUMANIKA.png', 'nday', 'BRI', '2312-1321-5343-1234', 0, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user`
+-- Struktur dari tabel `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -240,7 +245,7 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_user`
+-- Dumping data untuk tabel `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id_user`, `nama_user`, `username`, `password`, `level_user`) VALUES
@@ -253,107 +258,107 @@ INSERT INTO `tbl_user` (`id_user`, `nama_user`, `username`, `password`, `level_u
 --
 
 --
--- Indexes for table `tbl_barang`
+-- Indeks untuk tabel `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indexes for table `tbl_gambar`
+-- Indeks untuk tabel `tbl_gambar`
 --
 ALTER TABLE `tbl_gambar`
   ADD PRIMARY KEY (`id_gambar`);
 
 --
--- Indexes for table `tbl_kategori`
+-- Indeks untuk tabel `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `tbl_pelanggan`
+-- Indeks untuk tabel `tbl_pelanggan`
 --
 ALTER TABLE `tbl_pelanggan`
   ADD PRIMARY KEY (`id_pelanggan`);
 
 --
--- Indexes for table `tbl_rekening`
+-- Indeks untuk tabel `tbl_rekening`
 --
 ALTER TABLE `tbl_rekening`
   ADD PRIMARY KEY (`id_rekening`);
 
 --
--- Indexes for table `tbl_rinci_transaksi`
+-- Indeks untuk tabel `tbl_rinci_transaksi`
 --
 ALTER TABLE `tbl_rinci_transaksi`
   ADD PRIMARY KEY (`id_rinci`);
 
 --
--- Indexes for table `tbl_setting`
+-- Indeks untuk tabel `tbl_setting`
 --
 ALTER TABLE `tbl_setting`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_transaksi`
+-- Indeks untuk tabel `tbl_transaksi`
 --
 ALTER TABLE `tbl_transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- Indexes for table `tbl_user`
+-- Indeks untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tbl_barang`
+-- AUTO_INCREMENT untuk tabel `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
   MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `tbl_gambar`
+-- AUTO_INCREMENT untuk tabel `tbl_gambar`
 --
 ALTER TABLE `tbl_gambar`
   MODIFY `id_gambar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT for table `tbl_kategori`
+-- AUTO_INCREMENT untuk tabel `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `tbl_pelanggan`
+-- AUTO_INCREMENT untuk tabel `tbl_pelanggan`
 --
 ALTER TABLE `tbl_pelanggan`
   MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbl_rekening`
+-- AUTO_INCREMENT untuk tabel `tbl_rekening`
 --
 ALTER TABLE `tbl_rekening`
   MODIFY `id_rekening` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbl_rinci_transaksi`
+-- AUTO_INCREMENT untuk tabel `tbl_rinci_transaksi`
 --
 ALTER TABLE `tbl_rinci_transaksi`
-  MODIFY `id_rinci` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_rinci` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `tbl_transaksi`
+-- AUTO_INCREMENT untuk tabel `tbl_transaksi`
 --
 ALTER TABLE `tbl_transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `tbl_user`
+-- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
