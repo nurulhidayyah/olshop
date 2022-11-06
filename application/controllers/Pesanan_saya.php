@@ -16,6 +16,8 @@ class pesanan_saya extends CI_Controller
         $data = array(
             'title' => 'Pesanan Saya',
             'belum_bayar' => $this->m_transaksi->belum_bayar(),
+            'diproses' => $this->m_transaksi->diproses(),
+            'dikirim' => $this->m_transaksi->dikirim(),
             'isi' => 'v_pesanan_saya'
         );
         $this->load->view('layout/v_wrapper_frontend', $data, FALSE);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Nov 2022 pada 19.28
+-- Waktu pembuatan: 06 Nov 2022 pada 00.54
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 8.0.8
 
@@ -226,9 +226,9 @@ CREATE TABLE `tbl_transaksi` (
 --
 
 INSERT INTO `tbl_transaksi` (`id_transaksi`, `id_pelanggan`, `no_order`, `tgl_order`, `nama_penerima`, `no_telp`, `provinsi`, `kota`, `alamat`, `kode_pos`, `expedisi`, `paket`, `estimasi`, `ongkir`, `berat`, `grand_total`, `total_bayar`, `status_bayar`, `bukti_bayar`, `atas_nama`, `nama_bank`, `no_rek`, `status_order`, `no_resi`) VALUES
-(6, 1, '20221007J3XSAURB', '2022-10-07', 'Nurul Hidayah', '0812123111', 'DI Yogyakarta', 'Kulon Progo', 'sdaSDsdsd', '41241241', 'tiki', 'REG', '4 Hari', 29000, 1000, 3400000, 3429000, 1, 'bukti_bayar.jpg', 'Budi', 'BRI', '1123-2133-3133-1231', 0, NULL),
+(6, 1, '20221007J3XSAURB', '2022-10-07', 'Nurul Hidayah', '0812123111', 'DI Yogyakarta', 'Kulon Progo', 'sdaSDsdsd', '41241241', 'tiki', 'REG', '4 Hari', 29000, 1000, 3400000, 3429000, 1, 'bukti_bayar.jpg', 'Budi', 'BRI', '1123-2133-3133-1231', 2, 'BNG43120381239'),
 (8, 1, '20221105IJFYBCBW', '2022-11-05', 'Nurul Hidayah', '081298021608', 'Banten', 'Lebak', 'Binuangeun', '42396', 'jne', 'CTCYES', '1-1 Hari', 13000, 800, 760000, 773000, 0, NULL, NULL, NULL, NULL, 0, NULL),
-(9, 1, '20221105IDXMECWS', '2022-11-05', 'Nday', '081298021608', 'DKI Jakarta', 'Jakarta Selatan', 'Binuangeun', '42396', 'tiki', 'REG', '2 Hari', 12000, 300, 700000, 712000, 1, 'HUMANIKA.png', 'nday', 'BRI', '2312-1321-5343-1234', 0, NULL);
+(9, 1, '20221105IDXMECWS', '2022-11-05', 'Nday', '081298021608', 'DKI Jakarta', 'Jakarta Selatan', 'Binuangeun', '42396', 'tiki', 'REG', '2 Hari', 12000, 300, 700000, 712000, 1, 'HUMANIKA.png', 'nday', 'BRI', '2312-1321-5343-1234', 2, 'JKT31231381723183');
 
 -- --------------------------------------------------------
 
